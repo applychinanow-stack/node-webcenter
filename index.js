@@ -14,7 +14,7 @@ connectDB(); // connect to MongoDB
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",   // React app URL
+  origin: "http://client-webcenter.vercel.app",   // React app URL
   credentials: true
 }));
 app.use(express.json()); // to parse JSON requests
