@@ -40,6 +40,7 @@ const marketplaceApiCall = async (market, method, offerId = null, data = {}) => 
 export const createListing = async (req, res) => {
   try {
     const { title, game, description, login, password, price } = req.body;
+    console.log("enter in create listing");
     const files = req.files; // array
 
     if (!files || files.length === 0) {
@@ -578,7 +579,7 @@ export const checkGgChestSales = async () => {
       const offer = resp.data;
 
       // SOLD?
-      if (offer.qty_total === 0 || offer.status === "Sold" || offer.status === "DELETED") {
+      if (offer.qty_total === 0 || offer.status === "Sold" || offer.status === "DELETED" || offer.status !== "ACTIVE" ) {
         console.log("🔥 SOLD on GGChest:", listing._id);
 
         // delete listing everywhere
